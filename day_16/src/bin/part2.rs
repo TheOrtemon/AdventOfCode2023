@@ -102,9 +102,9 @@ fn follow_the_light(
     while let Some(([x, y], dir)) = deq.pop_front() {
         let cur_mirror = &matrix[y][x];
         let (next_dir_1, opt_dir) = cur_mirror.direct_light(dir);
-        walk_the_deq(&mut deq, &mut visited_matrix, &matrix, x, y, next_dir_1);
+        walk_the_deq(&mut deq, &mut visited_matrix, matrix, x, y, next_dir_1);
         if let Some(next_dir_2) = opt_dir {
-            walk_the_deq(&mut deq, &mut visited_matrix, &matrix, x, y, next_dir_2);
+            walk_the_deq(&mut deq, &mut visited_matrix, matrix, x, y, next_dir_2);
         }
     }
     visited_matrix.into_iter()
